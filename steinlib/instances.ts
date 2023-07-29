@@ -71,8 +71,37 @@ const D = [
     { path: 'steinlib/instances/D/d20.stp', optimal: 537, name: 'd20' }
 ];
 
+const R = [
+    { path: '/media/matheus/BLUE/Mestrado/instancias-dissertacao/1-PR_1-PC/R/r01.dat', optimal: 717, name: 'r01' },
+    { path: '/media/matheus/BLUE/Mestrado/instancias-dissertacao/1-PR_1-PC/R/r02.dat', optimal: 1038, name: 'r02' },
+    { path: '/media/matheus/BLUE/Mestrado/instancias-dissertacao/1-PR_1-PC/R/r03.dat', optimal: 706, name: 'r03' },
+    { path: '/media/matheus/BLUE/Mestrado/instancias-dissertacao/1-PR_1-PC/R/r04.dat', optimal: 917, name: 'r04' },
+    { path: '/media/matheus/BLUE/Mestrado/instancias-dissertacao/1-PR_1-PC/R/r05.dat', optimal: 1035, name: 'r05' },
+    { path: '/media/matheus/BLUE/Mestrado/instancias-dissertacao/1-PR_1-PC/R/r11.dat', optimal: 650, name: 'r11' },
+    { path: '/media/matheus/BLUE/Mestrado/instancias-dissertacao/1-PR_1-PC/R/r12.dat', optimal: 968, name: 'r12' },
+    { path: '/media/matheus/BLUE/Mestrado/instancias-dissertacao/1-PR_1-PC/R/r13.dat', optimal: 725, name: 'r13' },
+    { path: '/media/matheus/BLUE/Mestrado/instancias-dissertacao/1-PR_1-PC/R/r14.dat', optimal: 850, name: 'r14' },
+    { path: '/media/matheus/BLUE/Mestrado/instancias-dissertacao/1-PR_1-PC/R/r15.dat', optimal: 895, name: 'r15' },
+    { path: '/media/matheus/BLUE/Mestrado/instancias-dissertacao/1-PR_1-PC/R/r21.dat', optimal: 771, name: 'r21' },
+    { path: '/media/matheus/BLUE/Mestrado/instancias-dissertacao/1-PR_1-PC/R/r22.dat', optimal: 688, name: 'r22' },
+    { path: '/media/matheus/BLUE/Mestrado/instancias-dissertacao/1-PR_1-PC/R/r23.dat', optimal: 693, name: 'r23' },
+    { path: '/media/matheus/BLUE/Mestrado/instancias-dissertacao/1-PR_1-PC/R/r24.dat', optimal: 883, name: 'r24' },
+    { path: '/media/matheus/BLUE/Mestrado/instancias-dissertacao/1-PR_1-PC/R/r25.dat', optimal: 536, name: 'r25' },
+    { path: '/media/matheus/BLUE/Mestrado/instancias-dissertacao/1-PR_1-PC/R/r31.dat', optimal: 807, name: 'r31' },
+    { path: '/media/matheus/BLUE/Mestrado/instancias-dissertacao/1-PR_1-PC/R/r32.dat', optimal: 618, name: 'r32' },
+    { path: '/media/matheus/BLUE/Mestrado/instancias-dissertacao/1-PR_1-PC/R/r33.dat', optimal: 426, name: 'r33' },
+    { path: '/media/matheus/BLUE/Mestrado/instancias-dissertacao/1-PR_1-PC/R/r34.dat', optimal: 746, name: 'r34' },
+    { path: '/media/matheus/BLUE/Mestrado/instancias-dissertacao/1-PR_1-PC/R/r35.dat', optimal: 272, name: 'r35' },
+    { path: '/media/matheus/BLUE/Mestrado/instancias-dissertacao/1-PR_1-PC/R/r41.dat', optimal: 939, name: 'r41' },
+    { path: '/media/matheus/BLUE/Mestrado/instancias-dissertacao/1-PR_1-PC/R/r42.dat', optimal: 557, name: 'r42' },
+    { path: '/media/matheus/BLUE/Mestrado/instancias-dissertacao/1-PR_1-PC/R/r43.dat', optimal: 569, name: 'r43' },
+    { path: '/media/matheus/BLUE/Mestrado/instancias-dissertacao/1-PR_1-PC/R/r44.dat', optimal: 659, name: 'r44' },
+    { path: '/media/matheus/BLUE/Mestrado/instancias-dissertacao/1-PR_1-PC/R/r45.dat', optimal: 645, name: 'r45' },
+];
+
 export const instanceMap: IInstanceMap = {
     B: B.map(instance => ({ ...instance, path: path.join(root, instance.path) })),
     C: C.map(instance => ({ ...instance, path: path.join(root, instance.path) })),
-    D: D.map(instance => ({ ...instance, path: path.join(root, instance.path) }))
+    D: D.map(instance => ({ ...instance, path: path.join(root, instance.path) })),
+    R: R.map(instance => ({ ...instance, path: instance.path }))
 };

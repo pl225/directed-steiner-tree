@@ -52,3 +52,88 @@ export function parseSteinLibFile(fileName: string) {
         }
     }
 }
+
+export function parseRFile(fileName: string) {
+    let edges: IEdge[] = [];
+    const terminals: Vertex[] = [];
+    const a2: IEdge[] = [];
+
+    const blocked: IEdge[] = [];
+
+    const fileContent = fs.readFileSync(fileName, 'utf8');
+    const lines = fileContent.split('\n');
+    let line = lines.shift();
+    
+    while (lines.length > 0) {
+        if (line === 'ARCS') {
+            parseArcsR(lines);
+        }
+
+        if (line === 'BLOCKAGES') {
+            parseBlockagesR(lines);
+        }
+
+        if (line === 'TERMINALS') {
+            parseTerminals(lines);
+        }
+
+        line = lines.shift();
+    }
+    
+    edges = edges.filter(e => !blocked.find(b => b.src === e.src && b.dst === e.dst));
+    produceA2();
+    
+    return { edges, terminals };
+
+    function parseArcsR(lines: string[]) {
+        let line = lines.shift();
+    
+        while (line.length > 0) {
+            const [src, dst, cost] = line.split(' ');
+
+            const edge = { src, dst, cost: Number.parseInt(cost) };
+            edges.push(edge);
+
+            line = lines.shift();
+        }
+    }
+
+    function parseBlockagesR(lines: string[]) {
+        let line = lines.shift();
+    
+        while (line.length > 0) {
+            const [src, dst] = line.split(' ');
+
+            const edge = { src, dst, cost: 0 };
+            blocked.push(edge);
+
+            line = lines.shift();
+        }
+    }
+
+    function parseTerminals(lines: string[]) {
+        let line = lines.shift();
+    
+        while (line.length > 0) {
+            terminals.push(line);
+
+            line = lines.shift();
+        }
+    }
+
+    function produceA2() {
+        edges.forEach(e => {
+
+            const isBlocked = blocked.find(b => e.dst === b.src && e.src === b.dst);
+            if (!isBlocked) {
+                const exist = edges.find(candidata => candidata.dst === e.src && candidata.src === e.dst);
+                if (!exist) {
+                    edges.push({ src: e.dst, dst: e.src, cost: e.cost });
+                }
+            }
+
+            e.cost = 0;
+        });
+    }
+}
+
